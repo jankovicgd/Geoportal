@@ -1,2 +1,0 @@
-# Geoportal
-Geoportal master rad
