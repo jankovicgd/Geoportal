@@ -36,7 +36,7 @@ var LPIS_subparcel = new ol.layer.Tile({
     url: 'http://localhost:8080/geoserver/gwc/service/wms',
     params: {
       'LAYERS': 'LPIS:rs_subparcel',
-      'SRS': 'EPSG:3857'
+      'SRS': 'EPSG:3857',
     },
     serverType: 'geoserver'
   }))
@@ -85,16 +85,16 @@ var LPIS_agrparcel = new ol.layer.Tile({
 });
 
 var map = new ol.Map({
-  layers: [new ol.layer.Group({
-    title: 'Base Maps',
-    layers: [osmLayer, bingAerial]
-  }),
+  layers: [
+    new ol.layer.Group({
+      title: 'Base Maps',
+      layers: [osmLayer, bingAerial]
+    }),
 
-  new ol.layer.Group({
-    title: 'Overlays',
-    layers: [LPIS_agrparcel, LPIS_phyblock, LPIS_farblock, LPIS_subparcel, LPIS_topoblock]
-  })
-  ],
+    new ol.layer.Group({
+      title: 'Overlays',
+      layers: [LPIS_agrparcel, LPIS_phyblock, LPIS_farblock, LPIS_subparcel, LPIS_topoblock]
+    })],
 
   target: 'map',
   view: new ol.View({
