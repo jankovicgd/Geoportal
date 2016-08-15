@@ -1,0 +1,14 @@
+body {
+  padding-top: 70px;
+}
+
+.ol-mouse-position {
+  top: 8px;
+  font-family: "Helvetica";
+}
+
+.map {
+  height: 80%;
+  width: 90%;
+  border: 1px solid grey;
+}
