@@ -1,2 +1,6 @@
 # Geoportal
-Geoportal master rad
+
+
+## Synopsis
+
+Geoportal diplomski-master rad za web portal
