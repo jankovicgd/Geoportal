@@ -19,7 +19,7 @@ var LPIS_topoblock = new ol.layer.Tile({
   title: 'Topographic Block',
   visible: true,
   source: new ol.source.TileWMS(({
-    url: 'http://localhost:8080/geoserver/gwc/service/wms',
+    url: 'http://localhost:8080/geoserver/ows?SERVICE=WMS&',
     params: {
       'LAYERS': 'LPIS:rs_topoblock',
       'SRS': 'EPSG:3857'
@@ -33,7 +33,7 @@ var LPIS_subparcel = new ol.layer.Tile({
   title: 'SubParcel',
   visible: true,
   source: new ol.source.TileWMS(({
-    url: 'http://localhost:8080/geoserver/gwc/service/wms',
+    url: 'http://localhost:8080/geoserver/ows?SERVICE=WMS&',
     params: {
       'LAYERS': 'LPIS:rs_subparcel',
       'SRS': 'EPSG:3857',
@@ -47,7 +47,7 @@ var LPIS_farblock = new ol.layer.Tile({
   title: 'Farmer Block',
   visible: true,
   source: new ol.source.TileWMS(({
-    url: 'http://localhost:8080/geoserver/gwc/service/wms',
+    url: 'http://localhost:8080/geoserver/ows?SERVICE=WMS&',
     params: {
       'LAYERS': 'LPIS:rs_farblock',
       'SRS': 'EPSG:3857'
@@ -61,7 +61,7 @@ var LPIS_phyblock = new ol.layer.Tile({
   title: 'Physical Block',
   visible: true,
   source: new ol.source.TileWMS(({
-    url: 'http://localhost:8080/geoserver/gwc/service/wms',
+    url: 'http://localhost:8080/geoserver/ows?SERVICE=WMS&',
     params: {
       'LAYERS': 'LPIS:rs_phyblock',
       'SRS': 'EPSG:3857'
@@ -75,7 +75,7 @@ var LPIS_agrparcel = new ol.layer.Tile({
   title: 'Agricultural Parcel',
   visible: true,
   source: new ol.source.TileWMS(({
-    url: 'http://localhost:8080/geoserver/gwc/service/wms',
+    url: 'http://localhost:8080/geoserver/ows?SERVICE=WMS&',
   params: {
       'LAYERS': 'LPIS:rs_agrparcel',
       'SRS': 'EPSG:3857'
@@ -95,13 +95,11 @@ var map = new ol.Map({
       title: 'Overlays',
       layers: [LPIS_agrparcel, LPIS_phyblock, LPIS_farblock, LPIS_subparcel, LPIS_topoblock]
     })],
-
   target: 'map',
   view: new ol.View({
     center: ol.proj.transform([21, 43.5], 'EPSG:4326', 'EPSG:3857'),
     zoom: 7
   })
-
 });
 
 map.addControl(new ol.control.MousePosition({
