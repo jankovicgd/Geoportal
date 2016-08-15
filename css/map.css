@@ -3,12 +3,16 @@ body {
 }
 
 .ol-mouse-position {
-  top: 8px;
   font-family: "Helvetica";
+  top: 8px;
 }
 
 .map {
-  height: 80%;
-  width: 90%;
   border: 1px solid grey;
+  height: 600px;
+}
+
+footer {
+    bottom:0;
+    position:fixed;
 }
