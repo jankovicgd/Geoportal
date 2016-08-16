@@ -28,6 +28,7 @@ $("#GENWMS").on("click", getWMS);
 // klikom na dugme GENWMS pokrece se generisanjeWMS funkcija
 $("#GENWFS").on("click", getWFS);
 
+// klikom na dugme statID pokrece se getstat funkcija
 $("#statID").on("click", getstat);
 
 // funkcija uzima vrednost iz liste i generise link pomocu ekstenzije i vrednosti iz liste
@@ -65,4 +66,5 @@ function getstat(){
     alert("Input is " + e);
   }
   console.log(values);
+  window.open("../stat.html");
 }
