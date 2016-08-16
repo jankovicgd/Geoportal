@@ -1,0 +1,19 @@
+body {
+  padding-top: 70px;
+}
+
+.ol-mouse-position {
+  font-family: "Helvetica";
+  top: 8px;
+}
+
+.map {
+  border: 1px solid grey;
+  height: 400px;
+  width: 500px;
+}
+
+footer {
+    bottom: 0;
+    position: fixed;
+}
