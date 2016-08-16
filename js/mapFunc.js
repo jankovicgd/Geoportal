@@ -14,11 +14,38 @@ function prikazModalWMS() {
   $("#WMSMODAL").modal();
 }
 
+function prikazModalWFS() {
+  $("#WFSMODAL").modal();
+}
+
+// klikom na dugme GENWMS pokrece se getWMS funkcija
+$("#GENWMS").on("click", getWMS);
+
 // klikom na dugme GENWMS pokrece se generisanjeWMS funkcija
-$("#GENWMS").on("click", generisanjeWMS);
+$("#GENWFS").on("click", getWFS);
 
 // funkcija uzima vrednost iz liste i generise link pomocu ekstenzije i vrednosti iz liste
-function generisanjeWMS(){
+function getWMS(){
     var values = $("#sel1").val();
-    window.open("http://localhost:8080/geoserver/LPIS/wms?service=WMS&version=1.1.0&request=GetMap&layers=LPIS:"+values+"&styles=&bbox=7417819.71305329,4986187.72636233,7419661.97319402,4989141.32042276&width=479&height=768&srs=EPSG:31277&format=image%2F"+panelext,'_blank');
+    window.open("http://localhost:8080/geoserver/LPIS/"+
+                "wms?service=WMS" +
+                "&version=1.1.0" +
+                "&request=GetMap" +
+                "&layers=LPIS:" + values +
+                "&styles=" +
+                "&bbox=7417819.71305329,4986187.72636233,7419661.97319402,4989141.32042276" +
+                "&width=479" +
+                "&height=768" +
+                "&srs=EPSG:31277" +
+                "&format=image%2F" + panelext,'_blank');
+}
+
+function getWFS(){
+    var values = $("#sel2").val();
+    window.open("http://localhost:8080/geoserver/LPIS/" +
+      "ows?service=WFS" +
+      "&version=1.0.0" +
+      "&request=GetFeature" +
+      "&typeName=LPIS:" + values +
+      "&maxFeatures=50",'_blank');
 }

@@ -1,7 +1,7 @@
 var osmLayer = new ol.layer.Tile({
   source: new ol.source.OSM(),
   type: 'base',
-  title: 'OpenStreetMap'
+  title: 'OpenStreetMap',
 });
 
 var bingAerial = new ol.layer.Tile({
@@ -88,7 +88,7 @@ var map = new ol.Map({
   layers: [
     new ol.layer.Group({
       title: 'Base Maps',
-      layers: [osmLayer, bingAerial]
+      layers: [bingAerial, osmLayer]
     }),
 
     new ol.layer.Group({
@@ -97,8 +97,8 @@ var map = new ol.Map({
     })],
   target: 'map',
   view: new ol.View({
-    center: ol.proj.transform([21, 43.5], 'EPSG:4326', 'EPSG:3857'),
-    zoom: 7
+    center: ol.proj.transform([19.95, 45.025], 'EPSG:4326', 'EPSG:3857'),
+    zoom: 13
   })
 });
 

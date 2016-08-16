@@ -73,7 +73,7 @@
                 <li class="dropdown">
                 <a href="http://localhost:8080/geoserver/ows?service=wfs&version=2.0.0&request=GetCapabilities">WFS<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">GML</a></li>
+                  <li><a href="#" onclick="prikazModalWFS()" data-toggle="modal" data-target="#modalWFS" class="WFS" data-ext="gml">GML</a></li>
                   <li><a href="#">SHP</a></li>
                 </ul>
                 </li>
@@ -82,6 +82,9 @@
                   <ul class="dropdown-menu">
                     <li><a href="#" onclick="prikazModalWMS()" data-toggle="modal" data-target="#modalWMS" class="WMS" data-ext="png">PNG</a></li>
                     <li><a href="#" onclick="prikazModalWMS()" data-toggle="modal" data-target="#modalWMS" class="WMS" data-ext="jpeg">JPG</a></li>
+                    <li><a href="#" onclick="prikazModalWMS()" data-toggle="modal" data-target="#modalWMS" class="WMS" data-ext="gif">GIF</a></li>
+                    <li><a href="#" onclick="prikazModalWMS()" data-toggle="modal" data-target="#modalWMS" class="WMS" data-ext="pdf">PDF - Doesnt work yet</a></li>
+                    <li><a href="#" onclick="prikazModalWMS()" data-toggle="modal" data-target="#modalWMS" class="WMS" data-ext="tiff">TIFF</a></li>
                   </ul>
                 </li>
               </ul>
@@ -152,6 +155,35 @@
       </div>
     </div>
     <!-- Modal WMS-->
+
+    <!-- Modal WFS-->
+    <div class="modal fade" tabindex="-1" role="dialog" id="WFSMODAL">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 id="WFSMODALTITLE" class="modal-title">WFS</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="sel2">Izabrati sloj:</label>
+              <select class="form-control" id="sel2">
+                <option data-lyrName="rs_agrparcel">rs_agrparcel</option>
+                <option data-lyrName="rs_topoblock">rs_topoblock</option>
+                <option data-lyrName="rs_phyblock">rs_phyblock</option>
+                <option data-lyrName="rs_subparcel">rs_subparcel</option>
+                <option data-lyrName="rs_farblock">rs_farblock</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="GENWFS">Generisi WFS</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal WFS-->
     <!-- Modals -->
 
     <!-- Footer -->
