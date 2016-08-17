@@ -48,10 +48,11 @@
           <h3 class="panel-title">Login</h3>
         </div>
         <div class="panel-body">
-          <form action="welcome.php" method="POST">
-            Username:<input type="text" name="username" class="box"/><br /><br />
-            Password:<input type="password" name="password" class="box"/><br/><br/>
-            <input type="submit" value="Submit"/><br/>
+          <form action='welcome.php'
+            method="POST">
+            Username: <input type="text" name="username" class="box"/><br /><br />
+            Password: <input type="password" name="password" class="box"/><br/><br/>
+            <button type="button submit" class="btn btn-default" data-dismiss="modal">Log In</button>
             <div><?php echo $error; ?></div>
           </form>
         </div>
