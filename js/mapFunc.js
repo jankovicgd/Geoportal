@@ -61,9 +61,10 @@ function getWFS(){
 function getstat(){
   var values = $("#identifikatorkorisnik").val();
   try {
-    if (values == "") throw "empty";
+    if (values === "") throw "empty";
   } catch (e) {
     alert("Input is " + e);
+    return;
   }
   console.log(values);
   window.open("../stat.html");
