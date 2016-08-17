@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +9,9 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="Utilities/bootstrap-3.3.7-dist/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="Utilities/bootstrap-3.3.7-dist/css/bootstrap-dropdownhover.min.css" type="text/css">
-    <link rel="stylesheet" href="css/map.css" type="text/css">
+    <link rel="stylesheet" href="css/login.css" type="text/css">
     <!-- Stylesheets -->
-
-    <title>Agroportal</title>
+    <title>Log in</title>
   </head>
 
   <body>
@@ -42,16 +41,23 @@
     </header>
     <!-- Navbar -->
 
-    <!-- Splash -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12 text-left">
-          <h1>Agroportal</h1>
-          <p class="lead">Sadrzi podatke za poljoprivrednike i pomocne alate</p>
+    <!-- Login box -->
+    <div class="container row col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Login</h3>
+        </div>
+        <div class="panel-body">
+          <form action="welcome.php" method="POST">
+            Username:<input type="text" name="username" class="box"/><br /><br />
+            Password:<input type="password" name="password" class="box"/><br/><br/>
+            <input type="submit" value="Submit"/><br/>
+            <div><?php echo $error; ?></div>
+          </form>
         </div>
       </div>
     </div>
-    <!-- Splash -->
+    <!-- Login box -->
 
     <!-- Footer -->
     <div class="container-fluid">
@@ -65,11 +71,5 @@
     </div>
     <!-- Footer -->
 
-    <!-- Scripts -->
-    <script src="Utilities/js/jquery-3.1.0.min.js" type="text/javascript"></script>
-    <script src="Utilities/jquery-ui-1.12.0/jquery-ui.js" type="text/javascript"></script>
-    <script src="Utilities/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="Utilities/bootstrap-3.3.7-dist/js/bootstrap-dropdownhover.min.js"></script>
-    <!-- Scripts -->
   </body>
 </html>
