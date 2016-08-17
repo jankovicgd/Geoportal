@@ -14,14 +14,14 @@
     $active = $row['active'];
 
     $count = mysqli_num_rows($result);
-    
+    echo $count;
     // If result matched $myusername and $mypassword, table row must be 1 row
     if($count == 1) {
+      echo "<html><head><title>Welcome </title></head><body><h1>Welcome $myusername</h1><h2><a href = 'logout.php'>Sign Out</a></h2></body></html>";
       session_register("myusername");
       $_SESSION['login_user'] = $myusername;
-      echo "<html><head><title>Welcome </title></head><body><h1>Welcome </h1><h2><a href = 'logout.php'>Sign Out</a></h2></body></html>";
     }else {
-      echo "<html><head><title>Wrong password or username</title></head></html>";
+      echo "<html><body>Wrong password or username</body></html>";
     }
   }
 ?>
