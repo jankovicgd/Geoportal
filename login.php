@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,21 +41,25 @@
     <!-- Navbar -->
 
     <!-- Login box -->
-    <div class="container row col-md-3">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Login</h3>
-        </div>
-        <div class="panel-body">
-          <form action='welcome.php'
-            method="POST">
-            Username: <input type="text" name="username" class="box"/><br /><br />
-            Password: <input type="password" name="password" class="box"/><br/><br/>
-            <div class="btn-group">
-              <input type="submit" class="btn btn-primary"></input>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Login</h3>
             </div>
-              <button type="button" class="btn btn-default">Register</button>
-          </form>
+            <div class="panel-body">
+              <form action='welcome.php'
+                method="POST">
+                Username: <input type="text" name="username" class="box"/><br /><br />
+                Password: <input type="password" name="password" class="box"/><br/><br/>
+                <div class="btn-group">
+                  <input type="submit" class="btn btn-primary"></input>
+                </div>
+                  <button type="button" class="btn btn-default">Register</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -75,5 +77,11 @@
     </div>
     <!-- Footer -->
 
+    <!-- Scripts -->
+    <script src="Utilities/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="Utilities/jquery-ui-1.12.0/jquery-ui.js" type="text/javascript"></script>
+    <script src="Utilities/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="Utilities/bootstrap-3.3.7-dist/js/bootstrap-dropdownhover.min.js" type="text/javascript"></script>
+    <!-- Scripts -->
   </body>
 </html>
