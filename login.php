@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,8 +53,10 @@
             method="POST">
             Username: <input type="text" name="username" class="box"/><br /><br />
             Password: <input type="password" name="password" class="box"/><br/><br/>
-            <button type="button submit" class="btn btn-default" data-dismiss="modal">Log In</button>
-            <div><?php echo $error; ?></div>
+            <div class="btn-group">
+              <input type="submit" class="btn btn-primary">
+              <button type="button submit" class="btn btn-default">Register</button>
+            </div>
           </form>
         </div>
       </div>
