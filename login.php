@@ -54,9 +54,9 @@
             Username: <input type="text" name="username" class="box"/><br /><br />
             Password: <input type="password" name="password" class="box"/><br/><br/>
             <div class="btn-group">
-              <input type="submit" class="btn btn-primary">
-              <button type="button submit" class="btn btn-default">Register</button>
+              <input type="submit" class="btn btn-primary"></input>
             </div>
+              <button type="button" class="btn btn-default">Register</button>
           </form>
         </div>
       </div>
