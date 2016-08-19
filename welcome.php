@@ -1,20 +1,22 @@
 <?php
-//include('session.php');
-include("config.php");
-session_start();
+  //include('session.php');
+  include("config.php");
+  session_start();
 
-// username and password sent from form
-$myusername = $_POST["username"];
-$mypassword = $_POST["password"];
+  // username and password sent from form
+  $myusername = $_POST["username"];
+  $mypassword = $_POST["password"];
 
-$sql = "SELECT id FROM usersdb WHERE username = '$myusername' and password = '$mypassword'";
-$result = pg_query($db,$sql);
-$row = pg_fetch_array($result,NULL,PGSQL_NUM);
-$active = $row['active'];
-$count = pg_num_rows($result);
-// If result matched $myusername and $mypassword, table row must be 1 row
-if($count == 1) {
+  $sql = "SELECT id FROM usersdb WHERE username = '$myusername' and password = '$mypassword'";
+  $result = pg_query($db,$sql);
+  $row = pg_fetch_array($result,NULL,PGSQL_NUM);
+  $active = $row['active'];
+  $count = pg_num_rows($result);
+  // If result matched $myusername and $mypassword, table row must be 1 row
+  if($count == 1) {
+    $_SESSION['login_user'] = $myusername;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,14 +45,21 @@ if($count == 1) {
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Agroportal</a>
+            <a class="navbar-brand" href="index.php">Agroportal</a>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li><a href="oNama.html">O nama</a></li>
-              <li><a href="map.html">Kartografski pregled</a></li>
-              <li><a href="kontakt.html">Kontakt</a></li>
-              <li><a href="login.php">Login</a></li>
+              <li><a href="oNama.php">O nama</a></li>
+		          <li><a href="map.php">Kartografski pregled</a></li>
+		          <li><a href="kontakt.php">Kontakt</a></li>
+              <?php
+                if(!isset($_SESSION['login_user'])) {
+                  echo "<li><a href='login.php'>Login</a></li>";
+                }
+                else {
+                  echo "<li><a href='account.php'>Account</a></li>";
+                }
+              ?>
             </ul>
           </div>
         </div>
@@ -86,12 +95,9 @@ if($count == 1) {
 </html>
 
 <?php
-  session_register("myusername");
-  die();
-  $_SESSION['login_user'] = $myusername;
     }
     else {
-      header("location: http://localhost/login.php");
       echo "Wrong username or password";
+      header("Location: login.php");
     }
 ?>

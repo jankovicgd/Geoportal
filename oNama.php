@@ -1,3 +1,11 @@
+<?php
+  include('config.php');
+  //include('session.php');
+  session_start();
+	echo $_SESSION['login_user'];
+  //die();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -27,14 +35,21 @@
 		          <span class="icon-bar"></span>
 		          <span class="icon-bar"></span>
 		        </button>
-		        <a class="navbar-brand" href="index.html">Agroportal</a>
+            <a class="navbar-brand" href="index.php">Agroportal</a>
 		      </div>
 		      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		        <ul class="nav navbar-nav">
-		          <li><a href="oNama.html">O nama</a></li>
-		          <li><a href="map.html">Kartografski pregled</a></li>
-		          <li><a href="kontakt.html">Kontakt</a></li>
-							<li><a href="login.php">Login</a></li>
+							<li><a href="oNama.php">O nama</a></li>
+		          <li><a href="map.php">Kartografski pregled</a></li>
+		          <li><a href="kontakt.php">Kontakt</a></li>
+							<?php
+								if(!isset($_SESSION['login_user'])) {
+									echo "<li><a href='login.php'>Login</a></li>";
+								}
+								else {
+									echo "<li><a href='account.php'>Account</a></li>";
+								}
+							?>
 		        </ul>
 		      </div>
 		    </div>
