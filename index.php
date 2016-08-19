@@ -2,7 +2,7 @@
   include('config.php');
   //include('session.php');
   session_start();
-  echo $_SESSION['login_user'];
+  //echo $_SESSION['login_user'];
   //die();
 ?>
 
@@ -44,13 +44,15 @@
 		          <li><a href="kontakt.php">Kontakt</a></li>
               <?php
                 if(!isset($_SESSION['login_user'])) {
-                  echo "<li><a href='login.php'>Login</a></li>";
+                  echo "<li><a href='login.php'>Login</a></li></ul>";
                 }
 							  else {
-                  echo "<li><a href='account.php'>Account</a></li>";
+                  echo "<li><a href='account.php'>Account</a></li></ul>
+                        <ul class='nav navbar-nav navbar-right'>
+                          <li><a href='logout.php'>Sign out</a></li>
+                        </ul>";
                 }
               ?>
-            </ul>
           </div>
         </div>
       </nav>
@@ -62,6 +64,7 @@
       <div class="row">
         <div class="col-lg-12 text-left">
           <h1>Agroportal</h1>
+          <hr>
           <p class="lead">Sadrzi podatke za poljoprivrednike i pomocne alate</p>
         </div>
       </div>

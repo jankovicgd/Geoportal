@@ -34,13 +34,15 @@
 		          <li><a href="kontakt.php">Kontakt</a></li>
               <?php
                 if(!isset($_SESSION['login_user'])) {
-                  echo "<li><a href='login.php'>Login</a></li>";
+                  echo "<li><a href='login.php'>Login</a></li></ul>";
                 }
-                else {
-                  echo "<li><a href='account.php'>Account</a></li>";
+							  else {
+                  echo "<li><a href='account.php'>Account</a></li></ul>
+                        <ul class='nav navbar-nav navbar-right'>
+                          <li><a href='logout.php'>Sign out</a></li>
+                        </ul>";
                 }
               ?>
-            </ul>
           </div>
         </div>
       </nav>
@@ -50,20 +52,37 @@
     <!-- Login box -->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title">Login</h3>
             </div>
             <div class="panel-body">
-              <form action='welcome.php'
-                method="POST">
-                Username: <input type="text" name="username" class="box"/><br /><br />
-                Password: <input type="password" name="password" class="box"/><br/><br/>
-                <div class="btn-group">
-                  <input type="submit" class="btn btn-primary"></input>
+              <form action='welcome.php' method="POST" class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="username">Username:</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="username" class="box"/>
+                  </div>
                 </div>
-                  <button type="button" class="btn btn-default">Register</button>
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="password">Password:</label>
+                  <div class="col-sm-10">
+                    <input type="password" name="password" class="box"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" class="btn btn-primary"></input>
+                    <button type="button" class="btn btn-default">Register</button>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                  <?php
+                    if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
+                      echo "<span class='label label-danger'>Wrong username or password</span>";
+                    }
+                  ?>
+                </div>
               </form>
             </div>
           </div>

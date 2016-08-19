@@ -2,7 +2,7 @@
   include('config.php');
   //include('session.php');
   session_start();
-  echo $_SESSION['login_user'];
+  //echo $_SESSION['login_user'];
   //die();
 ?>
 
@@ -47,13 +47,15 @@
 		          <li><a href="kontakt.php">Kontakt</a></li>
               <?php
                 if(!isset($_SESSION['login_user'])) {
-                  echo "<li><a href='login.php'>Login</a></li>";
+                  echo "<li><a href='login.php'>Login</a></li></ul>";
                 }
-                else {
-                  echo "<li><a href='account.php'>Account</a></li>";
+							  else {
+                  echo "<li><a href='account.php'>Account</a></li></ul>
+                        <ul class='nav navbar-nav navbar-right'>
+                          <li><a href='logout.php'>Sign out</a></li>
+                        </ul>";
                 }
               ?>
-            </ul>
           </div>
         </div>
       </nav>
@@ -65,6 +67,7 @@
       <div class="row">
         <div class="col-md-12 text-left">
           <h1>Kartografski pregled</h1>
+					<hr>
         </div>
       </div>
     </div>
