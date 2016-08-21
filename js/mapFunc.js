@@ -67,5 +67,5 @@ function getstat(){
     return;
   }
   console.log(values);
-  window.open("../stat.html");
+  window.open("../stat.php");
 }

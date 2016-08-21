@@ -1,9 +1,11 @@
+// OSM baselayer
 var osmLayer = new ol.layer.Tile({
   source: new ol.source.OSM(),
   type: 'base',
   title: 'OpenStreetMap',
 });
 
+// BingAerial baselayer
 var bingAerial = new ol.layer.Tile({
   title: 'Bing Aerial',
   type: 'base',
@@ -14,6 +16,7 @@ var bingAerial = new ol.layer.Tile({
   })
 });
 
+// Blocks
 var LPIS_topoblock = new ol.layer.Tile({
   name: 'rs_topoblock',
   title: 'Topographic Block',
@@ -84,13 +87,15 @@ var LPIS_agrparcel = new ol.layer.Tile({
   }))
 });
 
+// Initialise map
 var map = new ol.Map({
   layers: [
+    // Basemap group
     new ol.layer.Group({
       title: 'Base Maps',
       layers: [bingAerial, osmLayer]
     }),
-
+    // Block group
     new ol.layer.Group({
       title: 'Overlays',
       layers: [LPIS_agrparcel, LPIS_phyblock, LPIS_farblock, LPIS_subparcel, LPIS_topoblock]
@@ -102,6 +107,7 @@ var map = new ol.Map({
   })
 });
 
+// Add control - layerSwitcher is extension
 map.addControl(new ol.control.MousePosition({
   coordinateFormat: ol.coordinate.createStringXY(2)
 }));
