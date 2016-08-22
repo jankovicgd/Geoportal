@@ -50,7 +50,7 @@
     $username = sanitize($username);
 
     $sqluser = "SELECT COUNT (id) FROM usersdb WHERE username = '$username'";
-    $sqlpass = "SELECT password FROM usersdb";
+    $sqlpass = "SELECT password FROM usersdb WHERE username = '$username'";
 
     $query1 = pg_query($sqluser);
     $query2 = pg_query($sqlpass);
