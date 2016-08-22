@@ -1,6 +1,22 @@
 <?php
-
+  // function that gets user data in an array and returns the data
   function user_data($user_id) {
+    $data = array();
+    $user_id = (int)$user_id;
+
+    $func_num_args = func_num_args();
+    $func_get_args = func_get_args();
+
+    if ($func_num_args > 1) {
+      unset($func_get_args[0]);
+
+      $fields = '"'.implode('", "', $func_get_args).'"';
+      $sqlquery = "SELECT $fields FROM usersdb WHERE id = $user_id";
+      $query = pg_query($sqlquery);
+      $data = pg_fetch_object($query);
+      //  print_r($data);
+      return $data;
+    }
 
   }
 

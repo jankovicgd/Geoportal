@@ -15,8 +15,7 @@
         <div class="col-lg-12 text-left">
           <h1>Nalog,
             <?php
-              // $usersName = getName($userid);
-              // echo $usersName;
+              echo $user_data->Nameuser;
             ?>
           </h1>
           <hr>

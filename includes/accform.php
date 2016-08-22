@@ -9,10 +9,11 @@
   <div class="form-group">
     <label class="control-label col-lg-1" for="email">Email:</label>
     <div class="col-lg-1">
-      <input type="password" name="email" class="box"/>
+      <input type="text" name="email" class="box"/>
     </div>
   </div>
   <hr>
+  <!--
   <div class="form-group">
     <label class="control-label col-lg-1" for="password">Old Password:</label>
     <div class="col-lg-1">
@@ -20,39 +21,40 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-lg-1" for="password">New Password:</label>
+    <label class="control-label col-lg-1" for="passwordnew">New Password:</label>
     <div class="col-lg-1">
       <input type="password" name="passwordnew" class="box"/>
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-lg-1" for="password">Repeat password:</label>
+    <label class="control-label col-lg-1" for="repeatpass">Repeat password:</label>
     <div class="col-lg-1">
       <input type="password" name="repeatpass" class="box"/>
     </div>
   </div>
   <hr>
+  -->
   <div class="form-group">
-    <label class="control-label col-lg-1" for="text">Name:</label>
+    <label class="control-label col-lg-1" for="Nameuser">Name:</label>
     <div class="col-lg-1">
-      <input type="text" name="name" class="box"/>
+      <input type="text" name="Nameuser" class="box"/>
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-lg-1" for="text">Surname:</label>
+    <label class="control-label col-lg-1" for="LastName">Surname:</label>
     <div class="col-lg-1">
-      <input type="text" name="surname" class="box"/>
+      <input type="text" name="LastName" class="box"/>
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-lg-1" for="text">Holding No:</label>
+    <label class="control-label col-lg-1" for="holdingNo">Holding No:</label>
     <div class="col-lg-1">
-      <input type="text" name="mbpg" class="box"/>
+      <input type="text" name="holdingNo" class="box"/>
     </div>
   </div>
   <div class="form-group">
     <div class="col-lg-1">
-      <input type="submit" class="btn btn-primary"></input>
+      <input type="submit" value="Change" class="btn btn-primary"></input>
     </div>
   </div>
 </form>
