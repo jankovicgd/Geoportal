@@ -23,6 +23,7 @@
           <p class="lead">
             Na ovoj stranici mozete podesiti licne informacije i pregledati podatke vezane za vase posede
           </p>
+          <?php include 'includes/accform.php' ?>
         </div>
       </div>
     </div>

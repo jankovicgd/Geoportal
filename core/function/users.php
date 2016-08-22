@@ -1,5 +1,9 @@
 <?php
 
+  function user_data($user_id) {
+
+  }
+
   // function that checks whether the user is logged in
   function loggedin() {
     if (isset($_SESSION['user_id'])) {

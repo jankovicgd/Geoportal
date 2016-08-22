@@ -14,9 +14,15 @@
   </div>
   <hr>
   <div class="form-group">
-    <label class="control-label col-lg-1" for="password">Password:</label>
+    <label class="control-label col-lg-1" for="password">Old Password:</label>
     <div class="col-lg-1">
-      <input type="password" name="password" class="box"/>
+      <input type="password" name="passwordold" class="box"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-lg-1" for="password">New Password:</label>
+    <div class="col-lg-1">
+      <input type="password" name="passwordnew" class="box"/>
     </div>
   </div>
   <div class="form-group">
