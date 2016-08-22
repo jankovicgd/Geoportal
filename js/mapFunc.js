@@ -69,3 +69,20 @@ function getstat(){
   console.log(values);
   window.open("../stat.php");
 }
+
+// panel for user acc
+$(function(){
+
+  $('.tab-panels .nav.nav-tabs li').on('click', function() {
+    $('.tab-panels .nav.nav-tabs li').removeClass('active');
+    $(this).addClass('active');
+    var panelToShow = $(this).attr('rel');
+    $('.tab-panels .panel.active').slideUp(300, function() {
+      $(this).removeClass('active');
+      $('#'+panelToShow).slideDown(300, function(){
+        $(this).addClass('active');
+      });
+    });
+;  });
+
+});

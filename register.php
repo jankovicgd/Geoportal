@@ -35,6 +35,10 @@
       $errorid = 9;
       outputErros2($errorid);
     }
+    if (email_exists($_POST['email']) === true) {
+      $errorid = 10;
+      outputErros2($errorid);
+    }
     // add checking for email and spaces in username, username length, email already in db
     echo 'Form submitted!';
   }

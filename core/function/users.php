@@ -42,6 +42,19 @@
     }
   }
 
+  // function that checks whether the email exists within the database
+  function email_exists($email) {
+    $email = sanitize($email);
+    $sqluser = "SELECT COUNT (id) FROM usersdb WHERE email = '$email'";
+    $query = pg_query($sqluser);
+
+    if (pg_fetch_result($query, 0, 0) == 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   // function that checks whether the user has an active account ie. confirmed email
   function user_active($username) {
     $username = sanitize($username);

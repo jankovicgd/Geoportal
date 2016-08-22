@@ -28,6 +28,7 @@
   $errors[6] = 'Vasa lozinka mora imati najmanje 6 karaktera';
   $errors[7] = 'Lozinke u poljima se ne slazu';
   $errors[8] = 'Potrebna je validna email adresa';
-  $errors[9] = 'Format korisnickog imena neispravan. Molimo ne koristite razmake'
+  $errors[9] = 'Format korisnickog imena neispravan. Molimo ne koristite razmake';
+  $errors[10] = 'Taj email je vec u upotrebi';
 
 ?>
