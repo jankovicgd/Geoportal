@@ -23,5 +23,11 @@
   $errors[1] = 'Ne postoji to korisnicko ime.';
   $errors[2] = 'Nalog nije aktivan. Molimo aktivirajte preko primljenog e-maila';
   $errors[3] = 'Nije tacna kombinacija username/password';
+  $errors[4] = 'Polja sa zvezdicom su obavezna.';
+  $errors[5] = 'Korisnik sa tim korisnickim imenom vec postoji';
+  $errors[6] = 'Vasa lozinka mora imati najmanje 6 karaktera';
+  $errors[7] = 'Lozinke u poljima se ne slazu';
+  $errors[8] = 'Potrebna je validna email adresa';
+  $errors[9] = 'Format korisnickog imena neispravan. Molimo ne koristite razmake'
 
 ?>

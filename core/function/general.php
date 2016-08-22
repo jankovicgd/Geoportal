@@ -9,6 +9,9 @@
   function outputErrors($errorid){
     header("Location: loginpage.php?msg=" . $errorid);
   }
+  function outputErrors2($errorid){
+    header("Location: register.php?msg=" . $errorid);
+  }
 
   // function getName($userid){
   //   $sqlquery = "SELECT Nameuser FROM usersdb WHERE id = $userid";
