@@ -13,11 +13,18 @@
     header("Location: register.php?msg=" . $errorid);
   }
 
+  function output_errors($errors) {
+    $output = array();
+    foreach ($errors as $error){
+      $output[] = '<li><span class="label label-danger">' . $error . '</span></li>';
+    }
+    return '<ul class="list-unstyled">' . implode ('', $output) . '<ul>';
+  }
   // function getName($userid){
   //   $sqlquery = "SELECT Nameuser FROM usersdb WHERE id = $userid";
   //   $query = pg_query($sqlquery);
   //
-  //   return pg_fetch_result($query, 0, 0);
+  //   return pg_fetch_result($query, 0, 0); <span class="label label-danger"></span>
   // }
 
  ?>

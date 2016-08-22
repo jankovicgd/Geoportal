@@ -1,5 +1,5 @@
 <!-- Login Form -->
-<form action='login.php' method="POST" class="form-horizontal">
+<form action='' method="POST" class="form-horizontal">
   <div class="form-group">
     <label class="control-label col-sm-2" for="username">Username:</label>
     <div class="col-sm-8">
@@ -19,11 +19,14 @@
     </div>
     <div class="col-sm-offset-2 col-sm-10">
       <?php
-        // If the message is returned get number and display error
-        if (isset($_GET["msg"])) {
-          $errid = $_GET["msg"];
-          $errormsg = $errors[$errid];
-          echo "<span class='label label-danger'>" . $errormsg . "</span>";
+        // // If the message is returned get number and display error
+        // if (isset($_GET["msg"])) {
+        //   $errid = $_GET["msg"];
+        //   $errormsg = $errors[$errid];
+        //   echo "<span class='label label-danger'>" . $errormsg . "</span>";
+        // }
+        if (empty($errors) === false) {
+          echo output_errors($errors);
         }
       ?>
     </div>

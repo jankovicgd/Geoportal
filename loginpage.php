@@ -1,4 +1,4 @@
-<?php include 'core/config.php'; ?>
+<?php include 'login.php'; ?>
 
 <!DOCTYPE html>
 <html lang="sh">
@@ -18,6 +18,7 @@
           <h1>Login</h1>
           <hr>
             <?php include 'includes/loginform.php'; ?>
+
         </div>
       </div>
     </div>

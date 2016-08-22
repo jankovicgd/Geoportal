@@ -1,46 +1,40 @@
 <?php
   include 'core/config.php';
-  //echo $_GET['msg'] . " poruka";
 
   if (empty($_POST) === false) {
     $required_fields = array('username', 'password', 'email', 'repeatpass');
     foreach($_POST as $key=>$value) {
       if (empty($value) && in_array($key, $required_fields) === true) {
-        $errorid = 4;
-        outputErrors2($errorid);
+        $errors[] = 'Polja sa zvezdicom su obavezna.';
         return;
       }
     }
-    if (user_exists($_POST['username'])) {
-      $errorid = 5;
-      outputErrors2($errorid);
-    }
-    // doesn't work from here out
-    if (strlen($_POST['password']) < 6) {
-      $errorid = 6;
-      outputErros2($errorid);
-    }
-    // doesn't work
-    if ($_POST['password'] !== $POST['repeatpass']){
-      $errorid = 7;
-      outputErros2($errorid);
-    }
-    // doesn't work
-    if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-      $errorid = 8;
-      outputErros2($errorid);
-    }
-    // doesn't work
-    if (preg_match("/\\s/", $_POST['username']) == true) {
-      $errorid = 9;
-      outputErros2($errorid);
-    }
-    if (email_exists($_POST['email']) === true) {
-      $errorid = 10;
-      outputErros2($errorid);
+    if (empty($errors) === true){
+      if (user_exists($_POST['username'])) {
+        $errors[] = 'Korisnik sa tim korisnickim imenom vec postoji';
+      }
+      // doesn't work from here out
+      if (strlen($_POST['password']) < 6) {
+        $errors[] = 'Vasa lozinka mora imati najmanje 6 karaktera';
+      }
+      // doesn't work
+      if ($_POST['password'] !== $POST['repeatpass']){
+        $errors[] = 'Lozinke u poljima se ne slazu';
+      }
+      // doesn't work
+      if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
+        $errors[] = 'Potrebna je validna email adresa';
+      }
+      // doesn't work
+      if (preg_match("/\\s/", $_POST['username']) == true) {
+        $errors[] = 'Format korisnickog imena neispravan. Molimo ne koristite razmake';
+      }
+      if (email_exists($_POST['email']) === true) {
+        $errors[] = 'Taj email je vec u upotrebi';
+      }
     }
     // add checking for email and spaces in username, username length, email already in db
-    echo 'Form submitted!';
+    //echo 'Form submitted!';
   }
 ?>
 
@@ -51,8 +45,17 @@
 
   <body>
 
-    <?php include 'includes/header.php' ?>
+    <?php include 'includes/header.php';
 
+    if (empty($_POST) === false && empty($errors) === true) {
+      echo "lol";
+      $register_data = array();
+
+    } else if (empty($errors) === false){
+      echo output_errors($errors);
+      echo "lol2";
+    }
+    ?>
     <!-- Main content -->
     <div class="container-fluid">
       <div class="row">
@@ -60,15 +63,7 @@
           <h1>Registracija</h1>
           <hr>
           <p class="lead">Registracija novog korisnika</p>
-          <?php include 'includes/regform.php' ?>
-          <?php
-            // If the message is returned get number and display error
-            if (isset($_GET["msg"])) {
-              $errid = $_GET["msg"];
-              $errormsg = $errors[$errid];
-              echo "<span class='label label-danger'>" . $errormsg . "</span>";
-            }
-          ?>
+          <?php include 'includes/regform.php'; ?>
         </div>
       </div>
     </div>

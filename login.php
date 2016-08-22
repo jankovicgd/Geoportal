@@ -7,19 +7,15 @@
     $password = $_POST['password'];
 
     if (empty($username) === true || empty($password) === true){
-      $errid = 0;
-      outputErrors($errid);
+      $errors[] = 'Molimo unesite podatke';
     } else if (user_exists($username) === false) {
-      $errid = 1;
-      outputErrors($errid);
+      $errors[] = 'Ne postoji to korisnicko ime.';
     } else if (user_active($username) === false){
-      $errid = 2;
-      outputErrors($errid);
+      $errors[] = 'Nalog nije aktivan. Molimo aktivirajte preko primljenog e-maila';
     } else {
       $login = login($username, $password);
       if ($login === false) {
-        $errid = 3;
-        outputErrors($errid);
+        $errors[] = 'Nije tacna kombinacija username/password';
       } else {
         $_SESSION['user_id'] = $login;
         header('Location: account.php');
