@@ -1,12 +1,20 @@
 // Klikom na WMS klasu (png, jpg) generise se sadrzaj u vidu naslova
-$(".WMS").on("click", sadrzaj);
+$(".WMS").on("click", sadrzajWMS);
+
+// Klikom na WFS klasu (png, jpg) generise se sadrzaj u vidu naslova
+$(".WFS").on("click", sadrzajWFS);
 
 var panelext;
 
 // Funkcija sadrzaj podesava naslov panela
-function sadrzaj(){
+function sadrzajWMS(){
   panelext = $(this).attr('data-ext');
   $("#WMSMODALTITLE").html("WMS " + panelext);
+}
+
+function sadrzajWFS(){
+  panelext = $(this).attr('data-ext');
+  $("#WFSMODALTITLE").html("WFS " + panelext);
 }
 
 // funkcija prikazModal prikazuje modal
@@ -34,17 +42,31 @@ $("#statID").on("click", getstat);
 // funkcija uzima vrednost iz liste i generise link pomocu ekstenzije i vrednosti iz liste
 function getWMS(){
   var values = $("#sel1").val();
-  window.open("http://localhost:8080/geoserver/LPIS/"+
-              "wms?service=WMS" +
-              "&version=1.1.0" +
-              "&request=GetMap" +
-              "&layers=LPIS:" + values +
-              "&styles=" +
-              "&bbox=7417819.71305329,4986187.72636233,7419661.97319402,4989141.32042276" +
-              "&width=479" +
-              "&height=768" +
-              "&srs=EPSG:31277" +
-              "&format=image%2F" + panelext,'_blank');
+  if (panelext == "pdf"){
+    window.open("http://localhost:8080/geoserver/LPIS/"+
+                "wms?service=WMS" +
+                "&version=1.1.0" +
+                "&request=GetMap" +
+                "&layers=LPIS:" + values +
+                "&styles=" +
+                "&bbox=7417819.71305329,4986187.72636233,7419661.97319402,4989141.32042276" +
+                "&width=479" +
+                "&height=768" +
+                "&srs=EPSG:31277" +
+                "&format=application%2F" + panelext,'_blank');
+  } else {
+    window.open("http://localhost:8080/geoserver/LPIS/"+
+                "wms?service=WMS" +
+                "&version=1.1.0" +
+                "&request=GetMap" +
+                "&layers=LPIS:" + values +
+                "&styles=" +
+                "&bbox=7417819.71305329,4986187.72636233,7419661.97319402,4989141.32042276" +
+                "&width=479" +
+                "&height=768" +
+                "&srs=EPSG:31277" +
+                "&format=image%2F" + panelext,'_blank');
+  }
 }
 
 function getWFS(){
@@ -54,7 +76,8 @@ function getWFS(){
               "&version=1.0.0" +
               "&request=GetFeature" +
               "&typeName=LPIS:" + values +
-              "&maxFeatures=50",'_blank');
+              "&maxFeatures=50" +
+              "&outputFormat=" + panelext,'_blank');
 }
 
 // funkcija koja uzima unet id i generise novu stranicu
