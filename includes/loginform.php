@@ -19,16 +19,11 @@
     </div>
     <div class="col-sm-offset-2 col-sm-10">
       <?php
-        // // If the message is returned get number and display error
-        // if (isset($_GET["msg"])) {
-        //   $errid = $_GET["msg"];
-        //   $errormsg = $errors[$errid];
-        //   echo "<span class='label label-danger'>" . $errormsg . "</span>";
-        // }
         if (empty($errors) === false) {
           echo output_errors($errors);
         }
       ?>
     </div>
+  </div>
 </form>
 <!-- Login Form -->

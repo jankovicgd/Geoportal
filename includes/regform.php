@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-lg-1" for="holdingNo">Holding No:</label>
+    <label class="control-label col-lg-1" for="holdingNo">Holding No*:</label>
     <div class="col-lg-1">
       <input type="text" name="holdingNo" class="box"/>
     </div>

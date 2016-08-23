@@ -1,4 +1,23 @@
 <?php
+
+  // function that registers the user
+  function register_user($register_data){
+    array_walk($register_data, 'array_sanitize');
+    $register_data['password'] = password_hash($register_data['password'], PASSWORD_BCRYPT);
+
+    // could solve empty or noncasted values
+    // foreach ($register_data as $key => $value) {
+    //   if ($value == ''){
+    //     $register_data[$key] = 'NULL';
+    //   }
+    // }
+
+    $data = "'" . implode("', '", $register_data) . "'";
+    $fields = '"' . implode('", "', array_keys($register_data)) . '"';
+    $sqlquery = "INSERT INTO usersdb ($fields) VALUES ($data);";
+    $query = pg_query($sqlquery);
+  }
+
   // function that gets user data in an array and returns the data
   function user_data($user_id) {
     $data = array();
@@ -14,7 +33,6 @@
       $sqlquery = "SELECT $fields FROM usersdb WHERE id = $user_id";
       $query = pg_query($sqlquery);
       $data = pg_fetch_object($query);
-      //  print_r($data);
       return $data;
     }
 
@@ -23,6 +41,19 @@
   // function that checks whether the user is logged in
   function loggedin() {
     if (isset($_SESSION['user_id'])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // function that checks whether the holdingNo exists
+  function holding_exists($holdingNo) {
+    $holdingNo = sanitize($holdingNo);
+    $sqluser = "SELECT COUNT (id) FROM usersdb WHERE holdingNo = '$holdingNo'";
+    $query = pg_query($sqluser);
+
+    if (pg_fetch_result($query, 0, 0) == 1) {
       return true;
     } else {
       return false;

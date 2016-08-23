@@ -1,4 +1,8 @@
 <?php
+  // sanitize array preventing SQL injection
+  function array_sanitize(&$item){
+    $item = pg_escape_string($item);
+  }
 
   // sanitaze data function - prevent SQL injection
   function sanitize($data) {

@@ -2,39 +2,39 @@
   include 'core/config.php';
 
   if (empty($_POST) === false) {
-    $required_fields = array('username', 'password', 'email', 'repeatpass');
+    $required_fields = array('username', 'password', 'email', 'repeatpass', 'holdingNo');
     foreach($_POST as $key=>$value) {
       if (empty($value) && in_array($key, $required_fields) === true) {
         $errors[] = 'Polja sa zvezdicom su obavezna.';
-        return;
+        break;
       }
     }
     if (empty($errors) === true){
       if (user_exists($_POST['username'])) {
         $errors[] = 'Korisnik sa tim korisnickim imenom vec postoji';
       }
-      // doesn't work from here out
       if (strlen($_POST['password']) < 6) {
         $errors[] = 'Vasa lozinka mora imati najmanje 6 karaktera';
       }
-      // doesn't work
-      if ($_POST['password'] !== $POST['repeatpass']){
+      if ($_POST['password'] !== $_POST['repeatpass']){
         $errors[] = 'Lozinke u poljima se ne slazu';
       }
-      // doesn't work
       if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false) {
         $errors[] = 'Potrebna je validna email adresa';
       }
-      // doesn't work
       if (preg_match("/\\s/", $_POST['username']) == true) {
         $errors[] = 'Format korisnickog imena neispravan. Molimo ne koristite razmake';
       }
       if (email_exists($_POST['email']) === true) {
         $errors[] = 'Taj email je vec u upotrebi';
       }
+      if (strlen($_POST['username']) > 20) {
+        $errors[] = 'Korisnicko ime mora imati manje od 20 karaktera';
+      }
+      if (holding_exists('holdingNo')) {
+        $errors[] = 'Korisnik je vec registrovan sa tim brojem gazdinstva';
+      }
     }
-    // add checking for email and spaces in username, username length, email already in db
-    //echo 'Form submitted!';
   }
 ?>
 
@@ -44,18 +44,35 @@
   <?php include 'includes/head.php' ?>
 
   <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 text-left">
+          <?php include 'includes/header.php';
 
-    <?php include 'includes/header.php';
+            if(isset($_GET['success']) && empty($_GET['success'])) {
+              echo "<span class='label label-success'>Registracija uspesna</span>";
+            }
 
-    if (empty($_POST) === false && empty($errors) === true) {
-      echo "lol";
-      $register_data = array();
+            if (empty($_POST) === false && empty($errors) === true) {
+              $register_data = array(
+                'username'  => $_POST['username'],
+                'email'     => $_POST['email'],
+                'password'  => $_POST['password'],
+                'Nameuser'  => $_POST['Nameuser'],
+                'LastName'  => $_POST['LastName'],
+                'holdingNo' => $_POST['holdingNo'],
+              );
+              register_user($register_data);
+              header('Location: register.php?success');
+              exit();
+            } else if (empty($errors) === false) {
+              echo output_errors($errors);
+            }
+          ?>
+        </div>
+      </div>
+    </div>
 
-    } else if (empty($errors) === false){
-      echo output_errors($errors);
-      echo "lol2";
-    }
-    ?>
     <!-- Main content -->
     <div class="container-fluid">
       <div class="row">
