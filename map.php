@@ -28,6 +28,9 @@
       <div class="row">
         <div class="col-md-12">
           <div id="map" class="map"></div>
+          <div id="legend">
+           <img src="http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=LPIS:rs_agrparcel"> - Parcela
+         </div>
         </div>
       </div>
     </div>
@@ -43,6 +46,6 @@
     <?php include 'includes/footer.php' ?>
 
     <?php include 'includes/mapincludes/scripts.php' ?>
-    
+
   </body>
 </html>
