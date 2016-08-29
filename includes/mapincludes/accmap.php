@@ -9,26 +9,18 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>Email</th>
+              <th>digitisedarea</th>
+              <th>rpid</th>
+              <th>mbpg</th>
+              <th>cropcode</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>John</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
-            </tr>
-            <tr>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-            </tr>
-            <tr>
-              <td>July</td>
-              <td>Dooley</td>
-              <td>july@example.com</td>
+              <td><?php echo $userSpatialData->digitisedarea;  ?></td>
+              <td><?php echo $userSpatialData->rpid; ?></td>
+              <td><?php echo $userSpatialData->mbpg; ?></td>
+              <td><?php echo $userSpatialData->cropcode; ?></td>
             </tr>
           </tbody>
         </table>

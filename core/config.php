@@ -9,11 +9,14 @@
   require 'database/connect.php';
   require 'function/general.php';
   require 'function/users.php';
+  require 'function/spatial.php';
 
   // if user is logged in, get his data
   if (loggedin()){
     $session_user_id = $_SESSION['user_id'];
     $user_data = user_data($session_user_id, 'id', 'username', 'password', 'email', 'Nameuser', 'LastName', 'holdingNo');
+    $holdingNo = $user_data->holdingNo;
+    $userSpatialData = getspatialdata($holdingNo, 'digitisedarea', 'rpid', 'mbpg', 'cropcode');
   }
 
   // errors for users
