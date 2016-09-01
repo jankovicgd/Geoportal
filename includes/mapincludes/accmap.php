@@ -6,24 +6,7 @@
         <div id="map" class="map"></div>
       </div>
       <div class="col-md-6">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>digitisedarea</th>
-              <th>rpid</th>
-              <th>mbpg</th>
-              <th>cropcode</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><?php echo $userSpatialData->digitisedarea;  ?></td>
-              <td><?php echo $userSpatialData->rpid; ?></td>
-              <td><?php echo $userSpatialData->mbpg; ?></td>
-              <td><?php echo $userSpatialData->cropcode; ?></td>
-            </tr>
-          </tbody>
-        </table>
+        <?php include 'tableUser.php'; ?>
       </div>
     </div>
   </div>

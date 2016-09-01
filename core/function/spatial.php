@@ -12,7 +12,12 @@ function getspatialdata($holdingNo){
     $fields = '"'.implode('", "', $func_get_args).'"';
     $sqlquery = "SELECT $fields FROM rs_agrparcel WHERE mbpg = $holdingNo";
     $query = pg_query($sqlquery);
-    $data = pg_fetch_object($query);
+    $rows = pg_num_rows($query);
+    $data = array();
+    while($line = pg_fetch_object($query)){
+      $data[] = $line;
+    }
+
     return $data;
   }
 }
